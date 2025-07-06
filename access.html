@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>IMI Video Access</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 50px auto; text-align: center; }
+    input { padding: 8px; width: 200px; }
+    button { padding: 8px 16px; }
+    #video { display: none; margin-top: 20px; }
+    #error { color: red; }
+  </style>
+</head>
+<body>
+  <h1>Enter Access Code</h1>
+  <input type="password" id="codeInput" placeholder="Enter code here" />
+  <button onclick="checkCode()">Submit</button>
+  <p id="error"></p>
+
+  <div id="video">
+    <h2>IMI Video</h2>
+    <!-- Replace the src with your video link -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/your_video_id" 
+      title="IMI Video" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <script>
+    function checkCode() {
+      const correctCode = "IMI2025"; // <-- Change this to your secret code!
+      const userCode = document.getElementById("codeInput").value;
+      const error = document.getElementById("error");
+      if (userCode === correctCode) {
+        document.getElementById("video").style.display = "block";
+        error.textContent = "";
+      } else {
+        error.textContent = "Incorrect code. Please try again.";
+      }
+    }
+  </script>
+</body>
+</html>
